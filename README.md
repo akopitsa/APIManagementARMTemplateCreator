@@ -26,6 +26,19 @@ Example when user is connected to multitenants:
 
 `Get-APIManagementTemplate -APIManagement MyApiManagementInstance -ResourceGroup myResourceGroup -SubscriptionId 80d4fe69-xxxx-4dd2-a938-9250f1c8ab03 -TenantName contoso.onmicrosoft.com`
 
+Option 2
+
+`Import-Module "<Install Location>\APIManagementTemplate.dll"
+
+$apimName = 'apimName'
+$rgName = 'rgName'
+$subId = 'subId'
+$tenant = 'tenant.onmicrosoft.com'
+
+$filename = '<Repository Location>\' + $apimName + '.json'
+
+Get-APIManagementTemplate -APIManagement $apimName -ResourceGroup $rgName -SubscriptionId $subId -TenantName $tenant -ExportPIManagementInstance $false | Out-File $filename`
+
 ### Specifications
 
 | Parameter | Description | Required | Default |
